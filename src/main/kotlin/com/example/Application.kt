@@ -1,6 +1,7 @@
 package com.example
 
 import com.example.plugins.configureHTTP
+import com.example.plugins.configureLocation
 import com.example.plugins.configureMonitoring
 import com.example.plugins.configureRouting
 import com.example.plugins.configureSecurity
@@ -16,6 +17,7 @@ fun main() {
 }
 
 fun Application.module() {
+  configureLocation()
   configureHTTP()
   configureSerialization()
   configureSecurity()

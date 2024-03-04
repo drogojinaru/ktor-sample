@@ -24,6 +24,7 @@ repositories {
 }
 
 dependencies {
+  implementation("io.ktor:ktor-server-locations:$ktor_version")
   implementation("io.ktor:ktor-server-partial-content-jvm")
   implementation("io.ktor:ktor-server-core-jvm")
   implementation("io.ktor:ktor-server-content-negotiation-jvm")
