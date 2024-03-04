@@ -1,1 +1,0 @@
-curl -v -f "username=mike" -F "password=mypassword" -F "role=admin" "localhost:8080/form"
