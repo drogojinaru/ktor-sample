@@ -73,7 +73,18 @@ fun Application.configureSecurity() {
       }
     }
 
-    form(name = "myauth2") {
+    basic(name = "myauth2") {
+      realm = "Ktor Other Server"
+      validate { credentials ->
+        if (credentials.name == "${credentials.password}abc123") {
+          UserIdPrincipal(credentials.name)
+        } else {
+          null
+        }
+      }
+    }
+
+    form(name = "myauth3") {
       userParamName = "user"
       passwordParamName = "password"
       challenge {
@@ -94,9 +105,15 @@ fun Application.configureSecurity() {
       }
     }
     authenticate("myauth1") {
-      get("/protected/route/basic") {
+      get("/secret/weather") {
         val principal = call.principal<UserIdPrincipal>()!!
         call.respondText("Hello ${principal.name}")
+      }
+    }
+    authenticate("myBasicAuth2") {
+      get("/trendycolor/nextmonth") {
+        val principal = call.principal<UserIdPrincipal>()!!
+        call.respondText("Hi ${principal.name} we think that purple will be popular next month")
       }
     }
     authenticate("myauth2") {
