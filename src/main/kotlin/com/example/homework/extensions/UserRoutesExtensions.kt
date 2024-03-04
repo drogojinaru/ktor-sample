@@ -1,4 +1,4 @@
-package com.example.extensions
+package com.example.homework.extensions
 
 import io.ktor.server.application.call
 import io.ktor.server.response.respondText

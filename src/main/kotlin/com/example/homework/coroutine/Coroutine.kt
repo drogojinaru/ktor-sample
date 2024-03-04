@@ -1,4 +1,4 @@
-package com.example.coroutine
+package com.example.homework.coroutine
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

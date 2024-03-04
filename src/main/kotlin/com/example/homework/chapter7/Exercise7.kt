@@ -1,4 +1,4 @@
-package com.example.chapter7
+package com.example.homework.chapter7
 
 fun main() {
 

@@ -1,4 +1,4 @@
-package com.example.chapter5.javacode;
+package com.example.homework.chapter5.javacode;
 
 public class MountainBike extends Bicycle {
 

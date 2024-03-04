@@ -1,14 +1,14 @@
 package com.example
 
-import com.example.extensions.userRoutes
-import com.example.plugins.*
-import io.ktor.server.application.*
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import io.ktor.server.response.respondText
-import io.ktor.server.routing.get
-import io.ktor.server.routing.post
-import io.ktor.server.routing.routing
+import com.example.plugins.configureHTTP
+import com.example.plugins.configureMonitoring
+import com.example.plugins.configureRouting
+import com.example.plugins.configureSecurity
+import com.example.plugins.configureSerialization
+import com.example.plugins.configureTemplating
+import io.ktor.server.application.Application
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
 
 fun main() {
   embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
@@ -22,7 +22,4 @@ fun Application.module() {
   configureTemplating()
   configureMonitoring()
   configureRouting()
-  routing {
-    userRoutes()
-  }
 }
