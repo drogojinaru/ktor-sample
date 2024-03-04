@@ -42,7 +42,7 @@ fun main() {
 data class Person(val firstname: String, val lastname: String, val age: Int)
 
 class Box<out T> {
-  
+
 }
 
 open class Paper {
