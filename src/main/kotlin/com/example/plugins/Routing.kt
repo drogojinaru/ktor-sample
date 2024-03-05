@@ -1,7 +1,6 @@
 package com.example.plugins
 
 import com.example.Book
-import com.example.DataManager
 import com.example.books
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.PartData
@@ -75,17 +74,6 @@ fun Application.configureRouting() {
     get("/library/book/{bookId}/reserve") {
       val bookId = call.parameters["bookId"] ?: "no_id"
       call.respond(BookReserveResponse("tou reserved the book id: $bookId", emptyList()))
-    }
-
-    get("/library/book/{bookId}") {
-      val bookId = call.parameters["bookId"] ?: "no_id"
-      val book = Book(bookId, "How to grow Apple", "Mr. Appleton")
-      val hypermediaLinks = listOf<HypermediaLinks>(
-        HypermediaLinks("http://localhost:8080/library/book/$bookId/checkout", "checkout", "GET"),
-        HypermediaLinks("http://localhost:8080/library/book/$bookId/reserve", "reserve", "GET")
-      )
-      val bookResponse = BookResponse(book, hypermediaLinks)
-      call.respond(bookResponse)
     }
 
     get("/first") {

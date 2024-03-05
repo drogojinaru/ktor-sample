@@ -19,7 +19,7 @@ data class BookListLocation(val sortby: String, val asc: Boolean)
 
 fun Route.books() {
 
-  val dataManager = DataManager()
+  val dataManager = DataManagerMongoDB()
 
   authenticate("bookstoreAuth") {
     get<BookListLocation> {

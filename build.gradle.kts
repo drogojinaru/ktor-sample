@@ -43,6 +43,8 @@ dependencies {
   implementation("io.ktor:ktor-server-status-pages-jvm")
   implementation("io.ktor:ktor-server-netty-jvm")
   implementation("ch.qos.logback:logback-classic:$logback_version")
+  implementation("org.mongodb:mongodb-driver-sync:4.11.1")
   testImplementation("io.ktor:ktor-server-tests-jvm")
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+
 }
