@@ -20,16 +20,16 @@ data class BookListLocation(val sortby: String, val asc: Boolean)
 fun Route.books() {
 
   val dataManager = DataManagerMongoDB()
-
+  route("/books") {
+    get {
+      call.respond(dataManager.allBooks())
+    }
   authenticate("bookstoreAuth") {
     get<BookListLocation> {
       call.respond(dataManager.sortedBooks(it.sortby, it.asc))
     }
 
-    route("/books") {
-      get {
-        call.respond(dataManager.allBooks())
-      }
+
       post("/{id}") {
         val id = call.parameters["id"]
         println("post id: $id")
