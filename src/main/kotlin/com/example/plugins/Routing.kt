@@ -1,7 +1,10 @@
 package com.example.plugins
 
-import com.example.Book
-import com.example.books
+import com.example.routes.books
+import com.example.routes.cartRouting
+import com.example.routes.loginView
+import com.example.routes.receiptRouting
+import com.example.ui.data.Book
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.PartData
 import io.ktor.http.content.forEachPart
@@ -26,7 +29,6 @@ import org.slf4j.LoggerFactory
 fun Application.configureRouting() {
 
   val log = LoggerFactory.getLogger(Application::class.java)
-
 
   install(StatusPages) {
     statusFile(
@@ -61,6 +63,9 @@ fun Application.configureRouting() {
   }
   routing {
     books()
+    loginView()
+    cartRouting()
+    receiptRouting()
 
     get("/") {
       call.respondText("Hello World!")
